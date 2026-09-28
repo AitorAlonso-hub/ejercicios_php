@@ -33,7 +33,7 @@
             if (-$c / $a < 0) {
                 return "No hay soluciones reales.";
             }
-
+            // El - delante de sqrt() representa precisamente la parte negativa del ±
             $x1 = -sqrt(-$c / $a);
             $x2 = sqrt(-$c / $a);
 
