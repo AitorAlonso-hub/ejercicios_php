@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valor de ejemplo de cada tipo de dato escalar en php con echo con las funciones var_dump() y printf</title>
+    <title>Valor de cada tipo de dato escalar con las funciones var_dump() y printf</title>
 </head>
 
 <body>
