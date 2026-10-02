@@ -1,6 +1,0 @@
-De la relación1 los ejers trabajados en clase son:
-* 3superglobals.php
-* 4array-constante.php
-* 5array-asociativo.php
-* 6clase-fruta.php
-* 16divisores-while.php
