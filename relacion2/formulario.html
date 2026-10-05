@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-secondary-subtle">
+    <!-- como se monta un grid para distribuir el espacio-->
+     <!--1º un div de class container-->
+    <div id="main" class="container text-center"class="container bg-secondary-subtle">
+        <h2 class="text-primary text-center">Formulario de referencias</h2>
+        <!--2º un div de class row-->
+
+        <div class="row">
+            <!--3º varios div de columnas, indicando reparto de las 12 áreas decolumna-->
+
+            <div class="col-md-3 col-sm-1 col-0">
+                <!--aqui va un espacio en blanco a la izquierda-->           
+            </div>
+            <div class="col-md-6 col-sm-10 col-12">
+                <!--aqui va el formulario-->   
+                <form class="m-auto mt-5 border rounded p-3 shadow">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Usuario:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">Es obligatorio introducir este dato</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <div id="passwordHelp" class="form-text">Entre 8 y 12 caracteres, letras, dígitos y car.especiales</div>
+                    </div>
+                    <!--
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    -->
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>        
+            </div>
+            <div class="col-md-3 col-sm-1 col-0">
+                <!--aqui va un espacio en blanco a la izquierda-->           
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
