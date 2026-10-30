@@ -9,78 +9,66 @@
 </head>
 
 <body class="bg-secondary-subtle">
-    <!-- como se monta un grid para distribuir el espacio-->
-    <!--1º un div de class container-->
-    <div id="main" class="container text-center" class="container bg-secondary-subtle">
+
+    <div id="main" class="container text-center bg-secondary-subtle">
         <h2 class="text-primary text-center mt-3">Formulario de referencias</h2>
-        <!--2º un div de class row-->
 
         <div class="row">
-            <!--3º varios div de columnas, indicando reparto de las 12 áreas decolumna-->
+            <div class="col-md-3 col-sm-1 col-0"></div>
 
-            <div class="col-md-3 col-sm-1 col-0">
-                <!--aqui va un espacio en blanco a la izquierda-->
-            </div>
             <div class="col-md-6 col-sm-10 col-12">
-                <!--aqui va el formulario-->
-                <form class="m-auto mt-5 border rounded p-3 shadow">
+                <!-- SE CORRIGE AQUÍ: Se añade el action y method al formulario -->
+                <form class="m-auto mt-5 border rounded p-3 shadow" method="get" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
-                    <!---->
                     <div class="mb-3">
                         <label for="n1" class="form-label fw-bold">Número 1:</label>
-                        <input type="number" name="n1" class="form-control" id="n1">
+                        <input type="number" name="n1" class="form-control" id="n1" required step="any">
                     </div>
 
                     <div class="mb-5">
-                        <select name="op" class="form-select" aria-label="Default select example" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <!-- SE CORRIGE AQUÍ: Se eliminan los atributos incorrectos del select -->
+                        <select name="op" class="form-select" aria-label="Default select example">
                             <option selected value="0">Elige operador</option>
                             <option value="+">+</option>
                             <option value="-">-</option>
                             <option value="*">*</option>
                             <option value="/">/</option>
                             <option value="%">%</option>
-
-
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="n2" class="form-label">Número 2:</label>
-                        <input type="number" name="n2" class="form-control" id="n2">
+                        <input type="number" name="n2" class="form-control" id="n2" required step="any">
                     </div>
-
-                    <!--aquí se procesan los datos al pulsar el botón enviar-->
 
                     <button type="submit" name="calcular" class="btn btn-primary">Calcular</button>
                 </form>
             </div>
-            <div class="col-md-3 col-sm-1 col-0">
-                <!--aqui va un espacio en blanco a la izquierda-->
-            </div>
+
+            <div class="col-md-3 col-sm-1 col-0"></div>
 
             <?php
-            // Solo se ejecutará solo si lo he pulsado
-            if (isset($_GET["calcular"]))
-                // ZONA DE DESCARGA de datos
-                $n1 = (float) $_GET["n1"]; // podría dar error si no introduzco num en el form
-            $n2 = (float) $_GET["n2"]; // podría dar error si no introduzco num en el form
-            $op = $_GET["op"];
+            // SE CORRIGE AQUÍ: Se añaden las llaves { } para agrupar todo el bloque lógico
+            if (isset($_GET["calcular"])) {
+                $n1 = (float) $_GET["n1"];
+                $n2 = (float) $_GET["n2"];
+                $op = $_GET["op"];
 
-            $resultado = match ($op) {
-                "+" => $n1 + $n2,
-                "-" => $n1 - $n2,
-                "*" => $n1 * $n2,
-                "/" => $n1 / $n2,
-                "%" => (int) $n1 % (int) $n2, // si tiene decimales los corta para resto de división
-                "0" => "no has elegido operador"
-            };
+                $resultado = match ($op) {
+                    "+" => $n1 + $n2,
+                    "-" => $n1 - $n2,
+                    "*" => $n1 * $n2,
+                    "/" => $n2 != 0 ? $n1 / $n2 : "Error: División por cero",
+                    "%" => $n2 != 0 ? (int) $n1 % (int) $n2 : "Error: División por cero",
+                    "0" => "no has elegido operador"
+                };
 
-            echo "<h3 class='text-center text-primary mt-2'>El resultado es: $resultado</h3>"
-
+                echo "<h3 class='text-center text-primary mt-4'>El resultado es: $resultado</h3>";
+            }
             ?>
         </div>
-
     </div>
-
 </body>
 
 </html>
