@@ -19,6 +19,29 @@
             text-align: center;
             padding: 15px;
         }
+
+        /* Contenedor de phpinfo() */
+        .phpinfo-contenedor {
+            width: 100%;
+            overflow-x: auto;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+        }
+
+        /* Tablas de phpinfo() */
+        .phpinfo-contenedor table {
+            font-size: 13px;
+            text-align: left;
+        }
+
+        /* Color y separación del texto */
+        .phpinfo-contenedor td,
+        .phpinfo-contenedor th {
+            padding: 6px;
+            color: white;
+        }
     </style>
 </head>
 
@@ -70,11 +93,9 @@
 
                 <p>Información completa de PHP:</p>
 
-                <?php
-                // phpinfo() muestra información completa de la configuración de PHP.
-                // Se deja comentado para no mostrar una página enorme dentro de la tarjeta.
-                // phpinfo();
-                ?>
+                <div class="phpinfo-contenedor">
+                    <?php phpinfo(); ?>
+                </div>
 
             </div>
         </div>

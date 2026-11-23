@@ -28,8 +28,8 @@
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     // Recogemos los datos del formulario
-                    $numero1 = (float) $_POST['numero1'];
-                    $numero2 = (float) $_POST['numero2'];
+                    $numero1 = (int) $_POST['numero1'];
+                    $numero2 = (int) $_POST['numero2'];
                     $operacion = $_POST['operacion'];
 
                     // Realizamos la operación con match
@@ -40,13 +40,26 @@
                         "division" => $numero2 != 0
                             ? $numero1 / $numero2
                             : "Error: División por cero",
+                        "porcentaje" => $numero2 != 0
+                            ? $numero1 % $numero2
+                            : "Error: División por cero",
                         default => "Operación no válida"
+                    };
+
+                    // Obtenemos el símbolo de la operación
+                    $simbolo = match ($operacion) {
+                        "suma" => "+",
+                        "resta" => "-",
+                        "multiplicacion" => "*",
+                        "division" => "/",
+                        "porcentaje" => "%",
+                        default => "?"
                     };
 
                     // Mostramos el resultado
                     echo "<div class='alert alert-info shadow-sm fw-bold fs-4'>";
 
-                    echo "Resultado: $numero1 $operacion $numero2 = $resultado";
+                    echo "Resultado: $numero1 $simbolo $numero2 = $resultado";
 
                     echo "</div>";
                 } else {

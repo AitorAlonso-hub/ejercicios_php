@@ -46,6 +46,7 @@
                             <option value="resta">-</option>
                             <option value="multiplicacion">*</option>
                             <option value="division">/</option>
+                            <option value="porcentaje">%</option>
 
                         </select>
                     </div>
@@ -91,6 +92,9 @@
                         "multiplicacion" => $numero1 * $numero2,
                         "division" => $numero2 != 0
                             ? $numero1 / $numero2
+                            : "Error: División por cero",
+                        "porcentaje" => $numero2 != 0
+                            ? $numero1 % $numero2
                             : "Error: División por cero",
                         default => "Operación no válida"
                     };
